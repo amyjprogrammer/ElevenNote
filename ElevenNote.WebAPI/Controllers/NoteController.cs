@@ -13,7 +13,6 @@ namespace ElevenNote.WebAPI.Controllers
     [Authorize]//security layer
     public class NoteController : ApiController
     {
-        
         //Get or Read
         public IHttpActionResult Get()
         {
@@ -35,6 +34,14 @@ namespace ElevenNote.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            NoteService noteService = CreateNoteService();
+            var note = noteService.GetNoteById(id);
+            return Ok(note);
+        }
+
         private NoteService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -42,5 +49,7 @@ namespace ElevenNote.WebAPI.Controllers
             return noteService;
         }
         //ask on Monday why this was on the bottom and about [HttpPost] not being included
+
+
     }
 }
