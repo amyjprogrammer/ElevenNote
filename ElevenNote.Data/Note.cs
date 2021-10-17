@@ -14,6 +14,9 @@ namespace ElevenNote.Data
 
         [Required]
         public Guid OwnerId { get; set; }
+        //stands for Globally Unique Identifier
+        //automatically generated for a token
+        //guid are good for security, but not good for debugging
 
         [Required]
         public string Title { get; set; }
