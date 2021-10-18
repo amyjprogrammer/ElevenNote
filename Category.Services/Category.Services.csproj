@@ -43,7 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryCreate.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Category.Data\Category.Data.csproj">
+      <Project>{cd70471f-c3b3-477d-ae40-122471cad237}</Project>
+      <Name>Category.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Category.Models\Category.Models.csproj">
+      <Project>{892e0ea6-9a19-4f40-9412-29032a2f9d71}</Project>
+      <Name>Category.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

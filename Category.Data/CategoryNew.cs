@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Category.Data
 {
-    public class Category
+    public class CategoryNew
     {
         [Key]
         public int CategoryId { get; set; }
