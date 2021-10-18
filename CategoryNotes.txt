@@ -1,0 +1,14 @@
+Category
+
+for IdentityModels.cs- just update the one in ElevenNote.Data
+	-public DbSet<Category> Categories { get; set; }
+
+1. Category.Data - new project (Class Library)
+	a. remove the class1.cs
+
+
+2. Category.Models (Class Library)
+	a. remove the class1.cs
+
+3. Category.Services (Class Library)
+	a. remove the class1.cs
