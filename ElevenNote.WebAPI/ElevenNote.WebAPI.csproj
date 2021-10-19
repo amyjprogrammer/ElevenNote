@@ -213,6 +213,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NoteController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -315,6 +316,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Category.Models\Category.Models.csproj">
+      <Project>{892E0EA6-9A19-4F40-9412-29032A2F9D71}</Project>
+      <Name>Category.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Category.Services\Category.Services.csproj">
+      <Project>{35803604-4D84-4C08-9DD0-9757E62329B4}</Project>
+      <Name>Category.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ElevenNote.Data\ElevenNote.Data.csproj">
       <Project>{5f74df7d-f5d8-46b4-9921-78ebc72e832a}</Project>
       <Name>ElevenNote.Data</Name>
