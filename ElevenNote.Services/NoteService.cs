@@ -27,6 +27,7 @@ namespace ElevenNote.Services
                 CreatedUtc = DateTimeOffset.Now
             };
 
+            //like private ApplicationDbContext _context = new ApplicationDbContext();
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Notes.Add(entity);
@@ -34,6 +35,7 @@ namespace ElevenNote.Services
             }
         }
 
+        //IEnumerable- is an interface in List, Array, Dictionaries, Queues
         public IEnumerable<NoteListItem> GetNotes()
         {
             using (var ctx = new ApplicationDbContext())
@@ -41,8 +43,8 @@ namespace ElevenNote.Services
                 var query =
                     ctx
                         .Notes
-                        .Where(e => e.OwnerId == _userId)
-                        .Select(
+                        .Where(e => e.OwnerId == _userId)//only show the signed in person's notes
+                        .Select(//kinda like a foreach loop
                             e =>
                                 new NoteListItem
                                 {
@@ -51,7 +53,8 @@ namespace ElevenNote.Services
                                     CreatedUtc = e.CreatedUtc
                                 }
                         );
-                return query.ToArray();
+                return query.ToArray();//Array takes up less memory vs. List
+                //could be return query.ToList();
             }
         }
 
@@ -62,7 +65,8 @@ namespace ElevenNote.Services
                 var entity =
                     ctx
                         .Notes
-                        .Single(e => e.NoteId == id && e.OwnerId == _userId);
+                        .Single(e => e.NoteId == id && e.OwnerId == _userId);//Returns a single item and make sure the username matches with the second statement
+                //could be written as var entity = ctx.Notes.Single(e => e.NoteId == id && e.OwnerId == _userId);
                 return
                     new NoteDetail
                     {
@@ -71,7 +75,7 @@ namespace ElevenNote.Services
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
-                    };
+                    };//object initiliazer 
             }
         }
 

@@ -58,6 +58,7 @@ namespace ElevenNote.WebAPI.Controllers
         }
 
         //Delete
+        //not asyn
         public IHttpActionResult Delete(int id)
         {
             var service = CreateNoteService();
@@ -68,6 +69,8 @@ namespace ElevenNote.WebAPI.Controllers
             return Ok();
         }
 
+        //helper method
+        //needs the private, because this could be used as a put
         private NoteService CreateNoteService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
